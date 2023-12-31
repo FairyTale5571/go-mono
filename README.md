@@ -1,5 +1,8 @@
 # Go Monobank API
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/FairyTale5571/go-mono.svg)](https://pkg.go.dev/github.com/FairyTale5571/go-mono)
+[![Go Report Card](https://goreportcard.com/badge/github.com/fairytale5571/go-mono)](https://goreportcard.com/report/github.com/fairytale5571/go-mono)
+
 ![](static/logo.png)
 
 ## Введення
