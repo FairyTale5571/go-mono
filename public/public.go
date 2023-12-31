@@ -1,8 +1,9 @@
 package public
 
 import (
-	"github.com/fairytale5571/go-mono/internal/api"
 	"net/http"
+
+	"github.com/fairytale5571/go-mono/internal/api"
 )
 
 type Public struct {
