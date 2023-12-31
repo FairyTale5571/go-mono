@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+// Statement - Об'єкт виписки
 type Statement struct {
 	ID              string `json:"id"`
 	Time            int    `json:"time"`
@@ -28,6 +29,7 @@ type Statement struct {
 	CounterName     string `json:"counterName"`
 }
 
+// GetStatementsRequest - Запит на отримання виписки
 type GetStatementsRequest struct {
 	From    int64
 	To      int64

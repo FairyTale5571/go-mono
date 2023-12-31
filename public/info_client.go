@@ -8,6 +8,7 @@ import (
 	"github.com/shopspring/decimal"
 )
 
+// Account - Рахунки клієнта
 type Account struct {
 	ID           string          `json:"id"`
 	SendID       string          `json:"sendId"`
@@ -20,9 +21,10 @@ type Account struct {
 	Iban         string          `json:"iban"`
 }
 
+// Jar - Банки клієнта
 type Jar struct {
 	Id           string          `json:"id"`
-	SendId       string          `json:"sendId"`
+	SendID       string          `json:"sendId"`
 	Title        string          `json:"title"`
 	Description  string          `json:"description"`
 	CurrencyCode int             `json:"currencyCode"`
@@ -30,6 +32,7 @@ type Jar struct {
 	Goal         decimal.Decimal `json:"goal"`
 }
 
+// InfoClient - Інформація про клієнта та переліку його рахунків і банок
 type InfoClient struct {
 	// ClientID - Ідентифікатор клієнта (збігається з id для send.monobank.ua)
 	ClientID string `json:"clientId"`

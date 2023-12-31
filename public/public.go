@@ -6,6 +6,7 @@ import (
 	"github.com/fairytale5571/go-mono/internal/api"
 )
 
+// Public - Клієнт для публічного API
 type Public struct {
 	token     string
 	apiClient *api.APIClient
@@ -20,6 +21,7 @@ type Opts struct {
 	Client *http.Client
 }
 
+// NewPublic - Створення нового клієнта для публічного API
 func NewPublic(opts Opts) *Public {
 	if opts.Client == nil {
 		opts.Client = http.DefaultClient

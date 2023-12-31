@@ -7,6 +7,7 @@ import (
 	"github.com/fairytale5571/go-mono/internal/api"
 )
 
+// Currency - Об'єкт курсу валют
 type Currency struct {
 	// CurrencyCodeA - Код валюти рахунку відповідно ISO 4217
 	CurrencyCodeA int32 `json:"currencyCodeA"`
