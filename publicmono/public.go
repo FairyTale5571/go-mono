@@ -1,4 +1,4 @@
-package public
+package publicmono
 
 import (
 	"net/http"
@@ -29,8 +29,9 @@ func NewPublic(opts Opts) *Public {
 	return &Public{
 		token: opts.Token,
 		apiClient: &api.APIClient{
-			Client:  opts.Client,
-			BaseURL: publicApiUrl,
+			Client:          opts.Client,
+			BaseURL:         publicApiUrl,
+			ErrorParserFunc: errorParser,
 		},
 	}
 }

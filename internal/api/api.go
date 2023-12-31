@@ -13,6 +13,7 @@ import (
 type APIClient struct {
 	BaseURL string
 	Client  *http.Client
+	ErrorParserFunc
 }
 
 // request конфігурація запиту
@@ -23,6 +24,7 @@ type Request struct {
 	Headers  map[string]string
 	Body     any
 	Response any
+	Error    error
 }
 
 // ErrorBody Тіло помилки
@@ -88,11 +90,7 @@ func (a *APIClient) SendRequest(ctx context.Context, r Request) error {
 			return err
 		}
 
-		var errorBody ErrorBody
-		if err := json.Unmarshal(bodyBytes, &errorBody); err != nil {
-			return err
-		}
-		return fmt.Errorf("bad status code: %d, errCode: %s, errText: %s", resp.StatusCode, errorBody.ErrCode, errorBody.ErrText)
+		return a.ErrorParserFunc(bodyBytes)
 	}
 
 	bodyBytes, err := io.ReadAll(resp.Body)

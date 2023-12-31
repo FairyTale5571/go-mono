@@ -55,8 +55,9 @@ func NewAcquiring(opts Opts) *Acquiring {
 	return &Acquiring{
 		token: opts.Token,
 		apiClient: &api.APIClient{
-			BaseURL: acquiringApiUrl,
-			Client:  opts.Client,
+			BaseURL:         acquiringApiUrl,
+			Client:          opts.Client,
+			ErrorParserFunc: errorParser,
 		},
 	}
 }

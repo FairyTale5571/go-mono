@@ -6,18 +6,18 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/fairytale5571/go-mono/public"
+	"github.com/fairytale5571/go-mono/publicmono"
 )
 
 func main() {
-	pub := public.NewPublic(public.Opts{
+	pub := publicmono.NewPublic(publicmono.Opts{
 		Token:  "ugPVpCP6poHI1oXPC7k-p-......",
 		Client: http.DefaultClient,
 	})
 	ctx := context.Background()
 	var err error
 
-	err = pub.SetWebhook(ctx, &public.SetWebhookRequest{
+	err = pub.SetWebhook(ctx, &publicmono.SetWebhookRequest{
 		WebHookURL: "https://b229-95-158-48-251.ngrok-free.app",
 	})
 	if err != nil {
@@ -36,7 +36,7 @@ func main() {
 	}
 	log.Println(currencies)
 
-	statements, err := pub.GetStatements(ctx, &public.GetStatementsRequest{
+	statements, err := pub.GetStatements(ctx, &publicmono.GetStatementsRequest{
 		Account: "XoO4NZ3tAkQc_.......",
 		From:    time.Now().Add(-time.Hour * 24 * 15).Unix(),
 		To:      time.Now().Unix(),

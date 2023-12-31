@@ -16,6 +16,7 @@ SDK для використання [Monobank API](https://api.monobank.ua/docs)
 ## Реалізовано
 
 - [X] [Публічне API](https://api.monobank.ua/docs) - [Приклад використання](example/public/main.go)
+  - [ ] [Corporate API](https://api.monobank.ua/docs/corporate.html)
 - [X] [Еквайрінг](https://api.monobank.ua/docs/acquiring.html)
     - [X] Інвойси
     - [X] Мерчанти
