@@ -6,8 +6,8 @@
 
 ## Реалізовано
 
-- [ ] [Публічне API](https://api.monobank.ua/docs)
-- [X] [Еквайрінг](https://api.monobank.ua/docs/acquiring.html)
+- [X] [Публічне API](https://api.monobank.ua/docs) - [Приклад використання](example/public/main.go)
+- [ ] [Еквайрінг](https://api.monobank.ua/docs/acquiring.html)
 - [ ] [Оплата частинами](https://u2-demo-ext.monobank.ua/docs/index.html)
 
 ## Документація
