@@ -5,7 +5,7 @@
 [![Go](https://img.shields.io/badge/Go-1.21-blue.svg?logo=go&longCache=true&style=flat-square)](https://golang.org)
 [![GitHub license](https://img.shields.io/github/license/fairytale5571/go-mono.svg?style=flat-square)]()
 
-[![](static/logo.png)]()
+<img alt="logo" src="static/logo.png" width="200" height="200" />
 
 ## Введення
 
@@ -22,7 +22,7 @@ SDK для використання [Monobank API](https://api.monobank.ua/docs)
     - [X] QR-Каси
 - [ ] [Оплата частинами](https://u2-demo-ext.monobank.ua/docs/index.html)
 - [ ] [Expirenza - Shake to Pay](https://api.shaketopay.com.ua/)
-- [ ] Unit-тести 
+- [ ] Тести 
 
 ## Документація
 - [Документація GoDev](https://pkg.go.dev/github.com/FairyTale5571/go-mono)
@@ -34,4 +34,4 @@ SDK для використання [Monobank API](https://api.monobank.ua/docs)
 - [Monobank](https://send.monobank.ua/jar/4yAFaAPmgo)
 - Картка `5375411212887207` (Monobank)
 
-![](static/cat_uk.jpg)
+<img alt="logo" src="static/cat_uk.jpg" width="400" height="400" />

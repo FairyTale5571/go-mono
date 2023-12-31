@@ -71,10 +71,10 @@ func (a *APIClient) SendRequest(ctx context.Context, r Request) error {
 		return err
 	}
 
+	req.Header.Add("Content-Type", "application/json")
 	for k, v := range r.Headers {
 		req.Header.Add(k, v)
 	}
-	req.Header.Add("Content-Type", "application/json")
 
 	resp, err := a.Client.Do(req)
 	if err != nil {

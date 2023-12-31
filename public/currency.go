@@ -20,7 +20,7 @@ type Currency struct {
 	RateCross float64 `json:"rateCross"`
 }
 
-// GetCurrency - Отримати базовий перелік курсів валют monobank. Інформація кешується та оновлюється не частіше 1 разу на 5 хвилин.
+// GetCurrencies - Отримати базовий перелік курсів валют monobank. Інформація кешується та оновлюється не частіше 1 разу на 5 хвилин.
 func (p *Public) GetCurrencies(ctx context.Context) ([]*Currency, error) {
 	var resp []*Currency
 	err := p.apiClient.SendRequest(ctx, api.Request{
