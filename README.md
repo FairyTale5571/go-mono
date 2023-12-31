@@ -19,7 +19,7 @@ SDK для використання [Monobank API](https://api.monobank.ua/docs)
 - [ ] [Еквайрінг](https://api.monobank.ua/docs/acquiring.html)
     - [X] Інвойси
     - [ ] Мерчанти
-    - [ ] QR-Каси
+    - [X] QR-Каси
 - [ ] [Оплата частинами](https://u2-demo-ext.monobank.ua/docs/index.html)
 - [ ] Unit-тести 
 
