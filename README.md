@@ -25,7 +25,7 @@ SDK для використання [Monobank API](https://api.monobank.ua/docs)
 - [ ] Unit-тести 
 
 ## Документація
-- [Документація GoDev](https://pkg.go.dev/github.com/monobank-api/go-mono-acquiring)
+- [Документація GoDev](https://pkg.go.dev/github.com/FairyTale5571/go-mono)
 
 ## Підтримка проекту
 
