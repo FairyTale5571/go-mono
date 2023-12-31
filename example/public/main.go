@@ -2,15 +2,16 @@ package main
 
 import (
 	"context"
-	"github.com/fairytale5571/go-mono/public"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/fairytale5571/go-mono/public"
 )
 
 func main() {
 	pub := public.NewPublic(public.Opts{
-		Token: "ugPVpCP6poHI1oXPC7k-p-......",
+		Token:  "ugPVpCP6poHI1oXPC7k-p-......",
 		Client: http.DefaultClient,
 	})
 	ctx := context.Background()
@@ -37,8 +38,8 @@ func main() {
 
 	statements, err := pub.GetStatements(ctx, &public.GetStatementsRequest{
 		Account: "XoO4NZ3tAkQc_.......",
-		From:   time.Now().Add(-time.Hour * 24 * 15).Unix(),
-		To:   	time.Now().Unix(),
+		From:    time.Now().Add(-time.Hour * 24 * 15).Unix(),
+		To:      time.Now().Unix(),
 	})
 	if err != nil {
 		panic(err)
