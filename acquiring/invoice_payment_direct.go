@@ -47,7 +47,9 @@ func (a *Acquiring) CreateInvoicePaymentDirect(ctx context.Context, req *Invoice
 		Path:   "/invoice/payment-direct",
 		Body:   req,
 		Headers: map[string]string{
-			"X-Token": a.token,
+			"X-Token":       a.token,
+			"X-Cms":         a.cmsName,
+			"X-Cms-Version": a.cmsVersion,
 		},
 		Response: &resp,
 	})

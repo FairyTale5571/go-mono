@@ -7,7 +7,7 @@ import (
 	"github.com/fairytale5571/go-mono/internal/api"
 )
 
-// QrResetAmountResponse запит на скидання суми
+// QrResetAmountRequest запит на скидання суми
 type QrResetAmountRequest struct {
 	QrID string `json:"qrId"`
 }

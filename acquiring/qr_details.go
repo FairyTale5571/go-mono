@@ -2,8 +2,9 @@ package acquiring
 
 import (
 	"context"
-	"github.com/fairytale5571/go-mono/internal/api"
 	"net/http"
+
+	"github.com/fairytale5571/go-mono/internal/api"
 )
 
 // QrDetailsResponse Інформація про QR-касу, лише для активованих QR-кас

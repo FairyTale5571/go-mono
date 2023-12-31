@@ -1,5 +1,6 @@
 package acquiring
 
+// MerchantPaymInfo - інформація про платіж
 type MerchantPaymInfo struct {
 	Reference      string         `json:"reference"`
 	Destination    string         `json:"destination"`
@@ -8,6 +9,7 @@ type MerchantPaymInfo struct {
 	BasketOrder    []*BasketOrder `json:"basketOrder"`
 }
 
+// BasketOrder - товари в чеку
 type BasketOrder struct {
 	Name      string      `json:"name"`
 	Qty       float64     `json:"qty"`

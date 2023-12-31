@@ -16,11 +16,12 @@ SDK для використання [Monobank API](https://api.monobank.ua/docs)
 ## Реалізовано
 
 - [X] [Публічне API](https://api.monobank.ua/docs) - [Приклад використання](example/public/main.go)
-- [ ] [Еквайрінг](https://api.monobank.ua/docs/acquiring.html)
+- [X] [Еквайрінг](https://api.monobank.ua/docs/acquiring.html)
     - [X] Інвойси
-    - [ ] Мерчанти
+    - [X] Мерчанти
     - [X] QR-Каси
 - [ ] [Оплата частинами](https://u2-demo-ext.monobank.ua/docs/index.html)
+- [ ] [Expirenza - Shake to Pay](https://api.shaketopay.com.ua/)
 - [ ] Unit-тести 
 
 ## Документація

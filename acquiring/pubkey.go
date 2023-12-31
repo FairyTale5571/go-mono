@@ -2,6 +2,8 @@ package acquiring
 
 import (
 	"context"
+	"net/http"
+
 	"github.com/fairytale5571/go-mono/internal/api"
 )
 
@@ -14,7 +16,7 @@ type PubKeyResponse struct {
 func (a *Acquiring) PubKey(ctx context.Context) (*PubKeyResponse, error) {
 	var response PubKeyResponse
 	err := a.apiClient.SendRequest(ctx, api.Request{
-		Method:   "GET",
+		Method:   http.MethodGet,
 		Path:     "/pubkey",
 		Response: &response,
 	})
