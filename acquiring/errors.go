@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/fairytale5571/go-mono/internal/api"
+	"github.com/FairyTale5571/go-mono/internal/api"
 )
 
 type ErrorBody struct {
@@ -18,11 +18,11 @@ func (e ErrorBody) Error() string {
 }
 
 var (
-	// ErrFailedToParsePEMBlock failed to parse PEM block containing the publicmono key
-	ErrFailedToParsePEMBlock = errors.New("failed to parse PEM block containing the publicmono key")
+	// ErrFailedToParsePEMBlock failed to parse PEM block containing the open-api key
+	ErrFailedToParsePEMBlock = errors.New("failed to parse PEM block containing the open-api key")
 
-	// ErrFailedToParsePublicKey failed to parse publicmono key
-	ErrFailedToParsePublicKey = errors.New("failed to parse publicmono key")
+	// ErrFailedToParsePublicKey failed to parse open-api key
+	ErrFailedToParsePublicKey = errors.New("failed to parse open-api key")
 )
 
 var errorParser api.ErrorParserFunc = func(body []byte) error {

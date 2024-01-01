@@ -1,10 +1,10 @@
-package publicmono
+package open_api
 
 import (
 	"context"
 	"net/http"
 
-	"github.com/fairytale5571/go-mono/internal/api"
+	"github.com/FairyTale5571/go-mono/internal/api"
 )
 
 // SetWebhookRequest - Запит на встановлення URL для надсилання подій по зміні балансу рахунку

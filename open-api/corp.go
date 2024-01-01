@@ -1,11 +1,11 @@
-package publicmono
+package open_api
 
 import (
 	"context"
 	"net/http"
 	"time"
 
-	"github.com/fairytale5571/go-mono/internal/api"
+	"github.com/FairyTale5571/go-mono/internal/api"
 )
 
 // AuthRegistrationRequest тіло запиту на реєстрацію

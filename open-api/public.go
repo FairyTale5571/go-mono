@@ -1,9 +1,9 @@
-package publicmono
+package open_api
 
 import (
 	"net/http"
 
-	"github.com/fairytale5571/go-mono/internal/api"
+	"github.com/FairyTale5571/go-mono/internal/api"
 )
 
 // Public - Клієнт для публічного API

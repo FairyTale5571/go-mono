@@ -1,11 +1,11 @@
-package publicmono
+package open_api
 
 import (
 	"context"
 	"fmt"
 	"net/http"
 
-	"github.com/fairytale5571/go-mono/internal/api"
+	"github.com/FairyTale5571/go-mono/internal/api"
 )
 
 // Statement - Об'єкт виписки

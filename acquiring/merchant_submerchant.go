@@ -3,7 +3,7 @@ package acquiring
 import (
 	"context"
 
-	"github.com/fairytale5571/go-mono/internal/api"
+	"github.com/FairyTale5571/go-mono/internal/api"
 )
 
 // SubMerchant обʼект субмерчантів

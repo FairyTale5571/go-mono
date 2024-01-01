@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/fairytale5571/go-mono/internal/api"
+	"github.com/FairyTale5571/go-mono/internal/api"
 )
 
 // MerchantWalletPaymentRequest запит оплати за токеном картки

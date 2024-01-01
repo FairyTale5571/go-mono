@@ -1,4 +1,4 @@
-module github.com/fairytale5571/go-mono
+module github.com/FairyTale5571/go-mono
 
 go 1.21
 
