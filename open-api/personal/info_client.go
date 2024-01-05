@@ -1,4 +1,4 @@
-package open_api
+package personal
 
 import (
 	"context"
@@ -23,7 +23,7 @@ type Account struct {
 
 // Jar - Банки клієнта
 type Jar struct {
-	Id           string          `json:"id"`
+	ID           string          `json:"id"`
 	SendID       string          `json:"sendId"`
 	Title        string          `json:"title"`
 	Description  string          `json:"description"`
@@ -49,7 +49,7 @@ type InfoClient struct {
 }
 
 // GetInfoClient - Отримання інформації про клієнта та переліку його рахунків і банок. Обмеження на використання функції не частіше ніж 1 раз у 60 секунд.
-func (p *Public) GetInfoClient(ctx context.Context) (*InfoClient, error) {
+func (p *Personal) GetInfoClient(ctx context.Context) (*InfoClient, error) {
 	var resp InfoClient
 	err := p.apiClient.SendRequest(ctx, api.Request{
 		Method:   http.MethodGet,

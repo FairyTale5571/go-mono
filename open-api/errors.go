@@ -1,4 +1,4 @@
-package open_api
+package openapi
 
 import (
 	"encoding/json"
@@ -15,7 +15,7 @@ func (e ErrorBody) Error() string {
 	return e.Message
 }
 
-var errorParser api.ErrorParserFunc = func(body []byte) error {
+var ErrorParser api.ErrorParserFunc = func(body []byte) error {
 	var errBody ErrorBody
 	if err := json.Unmarshal(body, &errBody); err != nil {
 		return err

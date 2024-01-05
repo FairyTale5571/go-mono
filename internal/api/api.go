@@ -16,7 +16,7 @@ type APIClient struct {
 	ErrorParserFunc
 }
 
-// request конфігурація запиту
+// Request конфігурація запиту
 type Request struct {
 	Method   string
 	Path     string
@@ -25,12 +25,6 @@ type Request struct {
 	Body     any
 	Response any
 	Error    error
-}
-
-// ErrorBody Тіло помилки
-type ErrorBody struct {
-	ErrCode string `json:"errCode"`
-	ErrText string `json:"errText"`
 }
 
 // prepareRequestBody Підготовлює тіло запиту
@@ -50,7 +44,7 @@ func isNotOkStatus(status int) bool {
 	return status < http.StatusOK || status > http.StatusMultipleChoices
 }
 
-// sendRequest Відправляє запит до API
+// SendRequest Відправляє запит до API
 func (a *APIClient) SendRequest(ctx context.Context, r Request) error {
 	reqURL, err := url.Parse(fmt.Sprintf("%s%s", a.BaseURL, r.Path))
 	if err != nil {
@@ -91,6 +85,10 @@ func (a *APIClient) SendRequest(ctx context.Context, r Request) error {
 		}
 
 		return a.ErrorParserFunc(bodyBytes)
+	}
+
+	if r.Response == nil {
+		return nil
 	}
 
 	bodyBytes, err := io.ReadAll(resp.Body)

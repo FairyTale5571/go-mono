@@ -1,4 +1,4 @@
-package open_api
+package personal
 
 import (
 	"context"
@@ -21,15 +21,12 @@ type Currency struct {
 }
 
 // GetCurrencies - Отримати базовий перелік курсів валют monobank. Інформація кешується та оновлюється не частіше 1 разу на 5 хвилин.
-func (p *Public) GetCurrencies(ctx context.Context) ([]*Currency, error) {
+func (p *Personal) GetCurrencies(ctx context.Context) ([]*Currency, error) {
 	var resp []*Currency
 	err := p.apiClient.SendRequest(ctx, api.Request{
 		Method:   http.MethodGet,
 		Path:     "/bank/currency",
 		Response: &resp,
-		Headers: map[string]string{
-			"X-Token": p.token,
-		},
 	})
 	if err != nil {
 		return nil, err

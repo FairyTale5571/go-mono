@@ -20,10 +20,6 @@ type Acquiring struct {
 	apiClient *api.APIClient
 }
 
-func (a *Acquiring) sign() string {
-	return "acquiring"
-}
-
 // SetCMS Встановлює назву CMS
 func (a *Acquiring) SetCMS(cms string) *Acquiring {
 	a.cmsName = cms
@@ -43,8 +39,8 @@ type Opts struct {
 }
 
 const (
-	// acquiringApiUrl URL для відправки запитів
-	acquiringApiUrl = "https://api.monobank.ua/api/merchant"
+	// acquiringApiURL URL для відправки запитів
+	acquiringApiURL = "https://api.monobank.ua/api/merchant"
 )
 
 // NewAcquiring Створює новий екземпляр класу
@@ -55,7 +51,7 @@ func NewAcquiring(opts Opts) *Acquiring {
 	return &Acquiring{
 		token: opts.Token,
 		apiClient: &api.APIClient{
-			BaseURL:         acquiringApiUrl,
+			BaseURL:         acquiringApiURL,
 			Client:          opts.Client,
 			ErrorParserFunc: errorParser,
 		},

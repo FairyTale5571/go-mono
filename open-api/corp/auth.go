@@ -1,4 +1,4 @@
-package open_api
+package corp
 
 import (
 	"context"
@@ -25,14 +25,14 @@ type AuthRegistrationResponse struct {
 }
 
 // authRegistration - Створення заявки на авторизацію компанії банком
-func (p *Public) authRegistration(ctx context.Context, req AuthRegistrationRequest) (*AuthRegistrationResponse, error) {
+func (c *Corp) authRegistration(ctx context.Context, req AuthRegistrationRequest) (*AuthRegistrationResponse, error) {
 	var resp AuthRegistrationResponse
-	err := p.apiClient.SendRequest(ctx, api.Request{
+	err := c.apiClient.SendRequest(ctx, api.Request{
 		Method:   http.MethodPost,
 		Path:     "/auth/register",
 		Response: &resp,
 		Headers: map[string]string{
-			"X-Sign": p.token,
+			"X-Sign": c.token,
 			"X-Time": time.Now().UTC().String(),
 		},
 		Body: req,

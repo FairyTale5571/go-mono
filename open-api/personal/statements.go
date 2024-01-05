@@ -1,4 +1,4 @@
-package open_api
+package personal
 
 import (
 	"context"
@@ -23,8 +23,8 @@ type Statement struct {
 	CashbackAmount  int    `json:"cashbackAmount"`
 	Balance         int    `json:"balance"`
 	Comment         string `json:"comment"`
-	ReceiptId       string `json:"receiptId"`
-	InvoiceId       string `json:"invoiceId"`
+	ReceiptID       string `json:"receiptId"`
+	InvoiceID       string `json:"invoiceId"`
 	CounterEDRPOU   string `json:"counterEdrpou"`
 	CounterIBAN     string `json:"counterIban"`
 	CounterName     string `json:"counterName"`
@@ -40,7 +40,7 @@ type GetStatementsRequest struct {
 // GetStatements - Отримання виписки за час від from до to часу в секундах в форматі Unix time. Максимальний час, за який можливо отримати виписку — 31 доба + 1 година (2682000 секунд).
 // Обмеження на використання функції — не частіше ніж 1 раз на 60 секунд.
 // Повертає 500 транзакцій з кінця, тобто від часу to до from. Якщо кількість транзакцій = 500, потрібно зробити ще один запит, зменшивши час to до часу останнього платежу, з відповіді. Якщо знову кількість транзакцій = 500, то виконуєте запити до того часу, поки кількість транзакцій не буде < 500. Відповідно, якщо кількість транзакцій < 500, то вже отримано всі платежі за вказаний період.
-func (p *Public) GetStatements(ctx context.Context, req *GetStatementsRequest) ([]*Statement, error) {
+func (p *Personal) GetStatements(ctx context.Context, req *GetStatementsRequest) ([]*Statement, error) {
 	var resp []*Statement
 
 	err := p.apiClient.SendRequest(ctx, api.Request{

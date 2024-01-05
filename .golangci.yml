@@ -1,0 +1,94 @@
+run:
+  go: '1.21'
+  timeout: 2m
+  output:
+    format: tab
+
+  skip-dirs:
+    - vendor
+
+output:
+  sort-results: true
+
+
+linters-settings:
+  govet:
+    check-shadowing: false
+    enable-all: true
+
+  staticcheck:
+    go: 1.21
+
+  stylecheck:
+    go: 1.21
+
+  unused:
+    go: 1.21
+
+  goconst:
+    min-len: 2
+    min-occurrences: 2
+
+  misspell:
+    locale: US
+
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - performance
+      - style
+      - experimental
+    disabled-checks:
+      - hugeParam
+
+
+linters:
+  enable:
+    - goimports
+    - gosimple
+    - ineffassign
+    - staticcheck
+    - unused
+    - typecheck
+    - dupl
+    - errorlint
+    - gochecknoinits
+    - gocritic
+    - gocyclo
+    - gofumpt
+    - gosec
+    - misspell
+    - nakedret
+    - nestif
+    - unconvert
+    - unparam
+    - stylecheck
+    - gas
+  fast: false
+  disable-all: true
+
+
+issues:
+  exclude-rules:
+    - text: "at least one file in a package should have a package comment"
+      linters:
+        - stylecheck
+
+    - text: "should have a package comment, unless it's in another file for this package"
+      linters:
+        - golint
+
+    - path: _test\.go
+      text: "fieldalignment: struct with"
+      linters:
+        - govet
+
+    - path: _test\.go
+      linters:
+        - gosec
+        - dupl
+  exclude-use-default: false
+
+
+service:
+  golangci-lint-version: 1.54.x
