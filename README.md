@@ -5,7 +5,7 @@
 [![Go](https://img.shields.io/badge/Go-1.21-blue.svg?logo=go&longCache=true&style=flat-square)](https://golang.org)
 [![GitHub license](https://img.shields.io/github/license/FairyTale5571/go-mono.svg?style=flat-square)]()
 
-<img alt="logo" src="static/logo.png" width="200" height="200" />
+<img align="right" alt="logo" src="static/logo.png" width="200" height="200" />
 
 ## Введення
 
