@@ -154,28 +154,8 @@ func (e *Expirenza) onEvent(_ int, message []byte) {
 		}
 		return request
 	}
-	request := getOperationRequest()
-	e.handlersMu.RLock()
-	defer e.handlersMu.RUnlock()
 
-	go func() {
-		if e.handlers[operation] != nil {
-			for _, handler := range e.handlers[operation] {
-				e.log("handler: %v request: %v", handler, request)
-				go handler.eventHandler.Handle(e, request)
-			}
-		}
-	}()
-
-	go func() {
-		if e.onceHandlers[operation] != nil {
-			for _, handler := range e.onceHandlers[operation] {
-				e.log("handler: %v request: %v", handler, request)
-				go handler.eventHandler.Handle(e, request)
-			}
-			e.onceHandlers[operation] = nil
-		}
-	}()
+	e.handleEvent(operation, getOperationRequest())
 }
 
 func (e *Expirenza) StopSession() error {

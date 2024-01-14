@@ -57,6 +57,7 @@ func (e *Expirenza) addEventHandlerOnce(eventHandler EventHandler) func() {
 	}
 }
 
+// AddHandler adds an event handler that will be fired every time
 func (e *Expirenza) AddHandler(handler interface{}) func() {
 	eh := e.handlerForInterface(handler)
 
@@ -67,6 +68,7 @@ func (e *Expirenza) AddHandler(handler interface{}) func() {
 	return e.addEventHandler(eh)
 }
 
+// AddHandlerOnce adds an event handler that will be fired the next time once
 func (e *Expirenza) AddHandlerOnce(handler interface{}) func() {
 	eh := e.handlerForInterface(handler)
 

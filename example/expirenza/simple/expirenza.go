@@ -2,12 +2,13 @@ package main
 
 import (
 	"context"
+
 	"github.com/FairyTale5571/go-mono/expirenza"
 )
 
 const (
-	restoID   = "your-resto-id"
-	secretKey = "your-secret-key"
+	restoID   = "your_resto_id"
+	secretKey = "your_secret_key"
 )
 
 func main() {
@@ -35,6 +36,10 @@ func main() {
 	client.AddHandler(UserInfoEvent)
 
 	if err := client.Open(ctx); err != nil {
+		panic(err)
+	}
+
+	if err := client.Ping(); err != nil {
 		panic(err)
 	}
 

@@ -42,3 +42,7 @@ go get github.com/FairyTale5571/go-mono
 - Картка `5375411212887207` (Monobank)
 
 <img alt="logo" src="static/cat_uk.jpg" width="400" height="400" />
+
+Special thanks to: 
+- [bwmarrin](https://github.com/bwmarrin/discordgo) - For the inspiration work with Websockets
+- Monobank - For the great API
