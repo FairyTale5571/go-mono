@@ -28,7 +28,7 @@ go get github.com/FairyTale5571/go-mono
     - [X] Мерчанти
     - [X] QR-Каси
 - [ ] [Оплата частинами](https://u2-demo-ext.monobank.ua/docs/index.html)
-- [ ] [Expirenza - Shake to Pay](https://api.shaketopay.com.ua/)
+- [ ] [Expirenza - Shake to Pay](https://api.shaketopay.com.ua/) SDK
 - [ ] Тести 
 
 ## Документація

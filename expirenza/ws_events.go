@@ -49,8 +49,8 @@ func (e *BaseEvent) GetRID() string {
 	return e.RID
 }
 
-// GetBillRequest - Запит на отримання рахунку
-type GetBillRequest struct {
+// GetBillEvent - Запит на отримання рахунку
+type GetBillEvent struct {
 	*BaseEvent
 
 	BillID      string `json:"billId,omitempty"`
@@ -72,8 +72,8 @@ type PayBillRequest struct {
 	FiscalData []*FiscalData `json:"fiscalData"`
 }
 
-// CreateOrderOnTableRequest - Запит на створення замовлення на столі
-type CreateOrderOnTableRequest struct {
+// CreateOrderOnTableEvent - Запит на створення замовлення на столі
+type CreateOrderOnTableEvent struct {
 	*BaseEvent
 
 	ExternalID string        `json:"externalId"`
@@ -83,15 +83,15 @@ type CreateOrderOnTableRequest struct {
 	FiscalData []*FiscalData `json:"fiscalData"`
 }
 
-// CheckProductsRestrictionsRequest - Запит на перевірку наявності блюд
-type CheckProductsRestrictionsRequest struct {
+// CheckProductsRestrictionsEvent - Запит на перевірку наявності блюд
+type CheckProductsRestrictionsEvent struct {
 	*BaseEvent
 
 	Items []*Item `json:"items"`
 }
 
-// SplitOrderRequest - Запит на розділення рахунку
-type SplitOrderRequest struct {
+// SplitOrderEvent - Запит на розділення рахунку
+type SplitOrderEvent struct {
 	*BaseEvent
 
 	BillID     string      `json:"billId"`
@@ -99,33 +99,33 @@ type SplitOrderRequest struct {
 	Positions  []*Position `json:"positions"`
 }
 
-// TablesInfoRequest - Запит на отримання інформації про столи ресторану
-type TablesInfoRequest struct {
+// TablesInfoEvent - Запит на отримання інформації про столи ресторану
+type TablesInfoEvent struct {
 	*BaseEvent
 }
 
-// UsersInfoRequest - Запит на отримання списку персоналу
-type UsersInfoRequest struct {
+// UsersInfoEvent - Запит на отримання списку персоналу
+type UsersInfoEvent struct {
 	*BaseEvent
 }
 
-// CategoriesInfoRequest - Запит на отримання списку категорій
-type CategoriesInfoRequest struct {
+// CategoriesInfoEvent - Запит на отримання списку категорій
+type CategoriesInfoEvent struct {
 	*BaseEvent
 }
 
-// HallPlansInfoRequest - Запит на отримання переліку залів у ресторані
-type HallPlansInfoRequest struct {
+// HallPlansInfoEvent - Запит на отримання переліку залів у ресторані
+type HallPlansInfoEvent struct {
 	*BaseEvent
 }
 
-// CheckWorkRequest - Запит на перевірку роботи ресторану
-type CheckWorkRequest struct {
+// CheckWorkEvent - Запит на перевірку роботи ресторану
+type CheckWorkEvent struct {
 	*BaseEvent
 }
 
-// SetSettingsRequest - Запит на передачу налаштувань
-type SetSettingsRequest struct {
+// SetSettingsEvent - Запит на передачу налаштувань
+type SetSettingsEvent struct {
 	*BaseEvent
 
 	PrintPreCheckQr         bool          `json:"printPrecheckQr"`
@@ -139,17 +139,17 @@ type SetSettingsRequest struct {
 	PaymentAllowed          bool          `json:"paymentAllowed"`
 }
 
-// StopListRequest - Запит на отримання відповіді від ресторану про продукти, що знаходяться в стоп-листі
-type StopListRequest struct {
+// StopListEvent - Запит на отримання відповіді від ресторану про продукти, що знаходяться в стоп-листі
+type StopListEvent struct {
 	*BaseEvent
 }
 
-// VersionInfoRequest - Запит на отримання версії плагіну від ресторану
-type VersionInfoRequest struct {
+// VersionInfoEvent - Запит на отримання версії плагіну від ресторану
+type VersionInfoEvent struct {
 	*BaseEvent
 }
 
-// MenuInfoRequest - Запит на отримання меню ресторану
-type MenuInfoRequest struct {
+// MenuInfoEvent - Запит на отримання меню ресторану
+type MenuInfoEvent struct {
 	*BaseEvent
 }

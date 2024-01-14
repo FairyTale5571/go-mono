@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/base64"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"sync"
 
@@ -71,14 +72,14 @@ func NewExpirenzaClient(settings Settings) *Expirenza {
 // Open - Відкриття сесії
 // При відкритті сесії відбувається підключення до WebSocket сервера
 // та запуск прослуховування подій
-// Ви повинні викликати цей метод ПІСЛЯ того як налаштували всі обробники подій
 func (e *Expirenza) Open(ctx context.Context) error {
 	if err := e.wssClient.Connect(ctx); err != nil {
 		return err
 	}
-
-	e.listener = make(chan any)
-	e.listen()
+	go func() {
+		e.listener = make(chan any)
+		e.listen()
+	}()
 
 	return nil
 }
@@ -103,7 +104,6 @@ func (e *Expirenza) listen() {
 }
 
 func (e *Expirenza) onEvent(_ int, message []byte) {
-
 	var msg map[string]interface{}
 	if err := json.Unmarshal(message, &msg); err != nil {
 		return
@@ -118,33 +118,33 @@ func (e *Expirenza) onEvent(_ int, message []byte) {
 		var request any
 		switch operation {
 		case OperationGetBill:
-			request = &GetBillRequest{}
+			request = &GetBillEvent{}
 		case OperationPayBill:
 			request = &PayBillRequest{}
 		case OperationCreateOrderOnTable:
-			request = &CreateOrderOnTableRequest{}
+			request = &CreateOrderOnTableEvent{}
 		case OperationCheckProductsRestrictions:
-			request = &CheckProductsRestrictionsRequest{}
+			request = &CheckProductsRestrictionsEvent{}
 		case OperationSplitOrder:
-			request = &SplitOrderRequest{}
+			request = &SplitOrderEvent{}
 		case OperationTablesInfo:
-			request = &TablesInfoRequest{}
+			request = &TablesInfoEvent{}
 		case OperationUsersInfo:
-			request = &UsersInfoRequest{}
+			request = &UsersInfoEvent{}
 		case OperationCategoriesInfo:
-			request = &CategoriesInfoRequest{}
+			request = &CategoriesInfoEvent{}
 		case OperationHallPlansInfo:
-			request = &HallPlansInfoRequest{}
+			request = &HallPlansInfoEvent{}
 		case OperationCheckWork:
-			request = &CheckWorkRequest{}
+			request = &CheckWorkEvent{}
 		case OperationSetSettings:
-			request = &SetSettingsRequest{}
+			request = &SetSettingsEvent{}
 		case OperationStopList:
-			request = &StopListRequest{}
+			request = &StopListEvent{}
 		case OperationVersionInfo:
-			request = &VersionInfoRequest{}
+			request = &VersionInfoEvent{}
 		case OperationMenuInfo:
-			request = &MenuInfoRequest{}
+			request = &MenuInfoEvent{}
 		default:
 			return nil
 		}
@@ -183,5 +183,5 @@ func (e *Expirenza) StopSession() error {
 }
 
 func (e *Expirenza) Ping() error {
-	return e.wssClient.SendMessage("ping")
+	return e.wssClient.SendMessage(fmt.Sprintf("Resto %s ping", e.restoID))
 }

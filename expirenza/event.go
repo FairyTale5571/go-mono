@@ -17,7 +17,6 @@ func registerInterfaceProvider(eh EventInterfaceProvider) {
 		return
 	}
 	registeredInterfaceProviders[eh.Type()] = eh
-	return
 }
 
 type eventHandlerInstance struct {

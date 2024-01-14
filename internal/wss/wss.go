@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 	"sync"
-	
+
 	"github.com/gorilla/websocket"
 )
 
@@ -95,7 +95,7 @@ func (w *WebsocketClient) Close() error {
 	return nil
 }
 
-func (w *WebsocketClient) ReadMessage() (int, []byte, error) {
+func (w *WebsocketClient) ReadMessage() (messageType int, p []byte, err error) {
 	w.mu.RLock()
 	defer w.mu.RUnlock()
 

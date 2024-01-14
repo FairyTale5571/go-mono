@@ -3,12 +3,12 @@ package expirenza
 import (
 	"encoding/json"
 	"errors"
+
 	"github.com/FairyTale5571/go-mono/internal/api"
 )
 
-var (
-	ErrInvalidResponseBody = errors.New("invalid response body")
-)
+// ErrInvalidResponseBody is returned when the response body is not valid.
+var ErrInvalidResponseBody = errors.New("invalid response body")
 
 type FieldError struct {
 	Field   string `json:"field"`

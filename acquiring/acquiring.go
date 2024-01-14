@@ -39,8 +39,8 @@ type Opts struct {
 }
 
 const (
-	// acquiringApiURL URL для відправки запитів
-	acquiringApiURL = "https://api.monobank.ua/api/merchant"
+	// acquiringAPIURL URL для відправки запитів
+	acquiringAPIURL = "https://api.monobank.ua/api/merchant"
 )
 
 // NewAcquiring Створює новий екземпляр класу
@@ -51,7 +51,7 @@ func NewAcquiring(opts Opts) *Acquiring {
 	return &Acquiring{
 		token: opts.Token,
 		apiClient: &api.APIClient{
-			BaseURL:         acquiringApiURL,
+			BaseURL:         acquiringAPIURL,
 			Client:          opts.Client,
 			ErrorParserFunc: errorParser,
 		},

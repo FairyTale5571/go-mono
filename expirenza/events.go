@@ -18,18 +18,18 @@ func (eh interfaceEventHandler) Handle(s *Expirenza, i any) {
 }
 
 // getBillHandler
-type getBillHandler func(*Expirenza, *GetBillRequest)
+type getBillHandler func(*Expirenza, *GetBillEvent)
 
 func (h getBillHandler) Type() Operation {
 	return OperationGetBill
 }
 
 func (h getBillHandler) New() any {
-	return &GetBillRequest{}
+	return &GetBillEvent{}
 }
 
 func (h getBillHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*GetBillRequest); ok {
+	if t, ok := i.(*GetBillEvent); ok {
 		h(e, t)
 	}
 }
@@ -51,194 +51,194 @@ func (h payBillHandler) Handle(e *Expirenza, i any) {
 	}
 }
 
-type createOrderOnTableHandler func(*Expirenza, *CreateOrderOnTableRequest)
+type createOrderOnTableHandler func(*Expirenza, *CreateOrderOnTableEvent)
 
 func (h createOrderOnTableHandler) Type() Operation {
 	return OperationCreateOrderOnTable
 }
 
 func (h createOrderOnTableHandler) New() any {
-	return &CreateOrderOnTableRequest{}
+	return &CreateOrderOnTableEvent{}
 }
 
 func (h createOrderOnTableHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*CreateOrderOnTableRequest); ok {
+	if t, ok := i.(*CreateOrderOnTableEvent); ok {
 		h(e, t)
 	}
 }
 
-type checkProductsRestrictionsHandler func(*Expirenza, *CheckProductsRestrictionsRequest)
+type checkProductsRestrictionsHandler func(*Expirenza, *CheckProductsRestrictionsEvent)
 
 func (h checkProductsRestrictionsHandler) Type() Operation {
 	return OperationCheckProductsRestrictions
 }
 
 func (h checkProductsRestrictionsHandler) New() any {
-	return &CheckProductsRestrictionsRequest{}
+	return &CheckProductsRestrictionsEvent{}
 }
 
 func (h checkProductsRestrictionsHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*CheckProductsRestrictionsRequest); ok {
+	if t, ok := i.(*CheckProductsRestrictionsEvent); ok {
 		h(e, t)
 	}
 }
 
-type splitOrderHandler func(*Expirenza, *SplitOrderRequest)
+type splitOrderHandler func(*Expirenza, *SplitOrderEvent)
 
 func (h splitOrderHandler) Type() Operation {
 	return OperationSplitOrder
 }
 
 func (h splitOrderHandler) New() any {
-	return &SplitOrderRequest{}
+	return &SplitOrderEvent{}
 }
 
 func (h splitOrderHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*SplitOrderRequest); ok {
+	if t, ok := i.(*SplitOrderEvent); ok {
 		h(e, t)
 	}
 }
 
-type tablesInfoHandler func(*Expirenza, *TablesInfoRequest)
+type tablesInfoHandler func(*Expirenza, *TablesInfoEvent)
 
 func (h tablesInfoHandler) Type() Operation {
 	return OperationTablesInfo
 }
 
 func (h tablesInfoHandler) New() any {
-	return &TablesInfoRequest{}
+	return &TablesInfoEvent{}
 }
 
 func (h tablesInfoHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*TablesInfoRequest); ok {
+	if t, ok := i.(*TablesInfoEvent); ok {
 		h(e, t)
 	}
 }
 
-type usersInfoHandler func(*Expirenza, *UsersInfoRequest)
+type usersInfoHandler func(*Expirenza, *UsersInfoEvent)
 
 func (h usersInfoHandler) Type() Operation {
 	return OperationUsersInfo
 }
 
 func (h usersInfoHandler) New() any {
-	return &UsersInfoRequest{}
+	return &UsersInfoEvent{}
 }
 
 func (h usersInfoHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*UsersInfoRequest); ok {
+	if t, ok := i.(*UsersInfoEvent); ok {
 		h(e, t)
 	}
 }
 
-type categoriesInfoHandler func(*Expirenza, *CategoriesInfoRequest)
+type categoriesInfoHandler func(*Expirenza, *CategoriesInfoEvent)
 
 func (h categoriesInfoHandler) Type() Operation {
 	return OperationCategoriesInfo
 }
 
 func (h categoriesInfoHandler) New() any {
-	return &CategoriesInfoRequest{}
+	return &CategoriesInfoEvent{}
 }
 
 func (h categoriesInfoHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*CategoriesInfoRequest); ok {
+	if t, ok := i.(*CategoriesInfoEvent); ok {
 		h(e, t)
 	}
 }
 
-type hallPlansInfoHandler func(*Expirenza, *HallPlansInfoRequest)
+type hallPlansInfoHandler func(*Expirenza, *HallPlansInfoEvent)
 
 func (h hallPlansInfoHandler) Type() Operation {
 	return OperationHallPlansInfo
 }
 
 func (h hallPlansInfoHandler) New() any {
-	return &HallPlansInfoRequest{}
+	return &HallPlansInfoEvent{}
 }
 
 func (h hallPlansInfoHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*HallPlansInfoRequest); ok {
+	if t, ok := i.(*HallPlansInfoEvent); ok {
 		h(e, t)
 	}
 }
 
-type checkWorkHandler func(*Expirenza, *CheckWorkRequest)
+type checkWorkHandler func(*Expirenza, *CheckWorkEvent)
 
 func (h checkWorkHandler) Type() Operation {
 	return OperationCheckWork
 }
 
 func (h checkWorkHandler) New() any {
-	return &CheckWorkRequest{}
+	return &CheckWorkEvent{}
 }
 
 func (h checkWorkHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*CheckWorkRequest); ok {
+	if t, ok := i.(*CheckWorkEvent); ok {
 		h(e, t)
 	}
 }
 
-type setSettingsHandler func(*Expirenza, *SetSettingsRequest)
+type setSettingsHandler func(*Expirenza, *SetSettingsEvent)
 
 func (h setSettingsHandler) Type() Operation {
 	return OperationSetSettings
 }
 
 func (h setSettingsHandler) New() any {
-	return &SetSettingsRequest{}
+	return &SetSettingsEvent{}
 }
 
 func (h setSettingsHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*SetSettingsRequest); ok {
+	if t, ok := i.(*SetSettingsEvent); ok {
 		h(e, t)
 	}
 }
 
-type stopListHandler func(*Expirenza, *StopListRequest)
+type stopListHandler func(*Expirenza, *StopListEvent)
 
 func (h stopListHandler) Type() Operation {
 	return OperationStopList
 }
 
 func (h stopListHandler) New() any {
-	return &StopListRequest{}
+	return &StopListEvent{}
 }
 
 func (h stopListHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*StopListRequest); ok {
+	if t, ok := i.(*StopListEvent); ok {
 		h(e, t)
 	}
 }
 
-type versionInfoHandler func(*Expirenza, *VersionInfoRequest)
+type versionInfoHandler func(*Expirenza, *VersionInfoEvent)
 
 func (h versionInfoHandler) Type() Operation {
 	return OperationVersionInfo
 }
 
 func (h versionInfoHandler) New() any {
-	return &VersionInfoRequest{}
+	return &VersionInfoEvent{}
 }
 
 func (h versionInfoHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*VersionInfoRequest); ok {
+	if t, ok := i.(*VersionInfoEvent); ok {
 		h(e, t)
 	}
 }
 
-type menuInfoHandler func(*Expirenza, *MenuInfoRequest)
+type menuInfoHandler func(*Expirenza, *MenuInfoEvent)
 
 func (h menuInfoHandler) Type() Operation {
 	return OperationMenuInfo
 }
 
 func (h menuInfoHandler) New() any {
-	return &MenuInfoRequest{}
+	return &MenuInfoEvent{}
 }
 
 func (h menuInfoHandler) Handle(e *Expirenza, i any) {
-	if t, ok := i.(*MenuInfoRequest); ok {
+	if t, ok := i.(*MenuInfoEvent); ok {
 		h(e, t)
 	}
 }

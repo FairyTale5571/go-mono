@@ -8,7 +8,6 @@ import (
 )
 
 func msglog(caller int, format string, a ...interface{}) {
-
 	pc, file, line, _ := runtime.Caller(caller)
 
 	files := strings.Split(file, "/")

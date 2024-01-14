@@ -6,19 +6,24 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/FairyTale5571/go-mono/open-api"
+	"github.com/FairyTale5571/go-mono/open-api/personal"
+)
+
+const (
+	webhookURL = "https://domain.com"
+	accountID  = "XoO4NZ3tAkQc_......."
 )
 
 func main() {
-	pub := open_api.NewPublic(open_api.Opts{
+	pub := personal.NewPersonalClient(personal.Opts{
 		Token:  "ugPVpCP6poHI1oXPC7k-p-......",
 		Client: http.DefaultClient,
 	})
 	ctx := context.Background()
 	var err error
 
-	err = pub.SetWebhook(ctx, &open_api.SetWebhookRequest{
-		WebHookURL: "https://b229-95-158-48-251.ngrok-free.app",
+	err = pub.SetWebhook(ctx, &personal.SetWebhookRequest{
+		WebHookURL: webhookURL,
 	})
 	if err != nil {
 		panic(err)
@@ -36,8 +41,8 @@ func main() {
 	}
 	log.Println(currencies)
 
-	statements, err := pub.GetStatements(ctx, &open_api.GetStatementsRequest{
-		Account: "XoO4NZ3tAkQc_.......",
+	statements, err := pub.GetStatements(ctx, &personal.GetStatementsRequest{
+		Account: accountID,
 		From:    time.Now().Add(-time.Hour * 24 * 15).Unix(),
 		To:      time.Now().Unix(),
 	})
