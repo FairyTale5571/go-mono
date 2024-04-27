@@ -10,6 +10,8 @@
 
 ## [Приклад реалізації базового функціоналу з використанням бібліотеки](../example/expirenza/simple)
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/FairyTale5571/go-mono.svg)](https://pkg.go.dev/github.com/FairyTale5571/go-mono/expirenza)
+
 ### Принцип роботи
 
 Сервіс Expirenza базується на принципі неперервного з'єднання ресторанного програмного комплексу з сервером Expirenza. 
