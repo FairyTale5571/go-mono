@@ -1,6 +1,5 @@
 package expirenza
 
-// you need fix this code gocyclo
 func (e *Expirenza) handlerForInterface(handler interface{}) EventHandler {
 	switch v := handler.(type) {
 	case func(*Expirenza, interface{}):

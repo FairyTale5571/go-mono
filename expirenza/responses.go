@@ -339,6 +339,7 @@ func (s *StopListResponse) sign(secretKey string) string {
 	return sign(secretKey, s)
 }
 
+// StopList - відправляє інформацію про стоп-лист страв.
 func (e *Expirenza) StopList(ctx context.Context, s *StopListResponse) error {
 	return e.apiClient.SendRequest(ctx,
 		api.Request{
@@ -370,6 +371,7 @@ func (v *VersionInfoResponse) sign(secretKey string) string {
 	return sign(secretKey, v)
 }
 
+// VersionInfo - відправляє інформацію про версію плагіну.
 func (e *Expirenza) VersionInfo(ctx context.Context, v *VersionInfoResponse) error {
 	return e.apiClient.SendRequest(ctx,
 		api.Request{
@@ -384,7 +386,7 @@ func (e *Expirenza) VersionInfo(ctx context.Context, v *VersionInfoResponse) err
 	)
 }
 
-type MenuInfoRequest struct {
+type MenuInfoResponse struct {
 	// Dishes - Страви
 	Dishes []MenuDish `json:"dishes"`
 	// GroupModifiers - групи модифікаторів страв
@@ -400,12 +402,12 @@ type MenuInfoRequest struct {
 	TerminalsGroups []TerminalGroup `json:"terminalsGroups"`
 }
 
-func (m *MenuInfoRequest) sign(secretKey string) string {
+func (m *MenuInfoResponse) sign(secretKey string) string {
 	return sign(secretKey, m)
 }
 
 // MenuInfo - відправляє інформацію про меню.
-func (e *Expirenza) MenuInfo(ctx context.Context, m *MenuInfoRequest) error {
+func (e *Expirenza) MenuInfo(ctx context.Context, m *MenuInfoResponse) error {
 	return e.apiClient.SendRequest(ctx,
 		api.Request{
 			Method: http.MethodPost,
