@@ -33,6 +33,7 @@ type Settings struct {
 	RestoID   string
 	SecretKey string
 	Debug     bool
+	PosName   string
 
 	Client    *http.Client
 	WssClient *websocket.Dialer
@@ -46,12 +47,16 @@ func NewExpirenzaClient(settings Settings) *Expirenza {
 	if settings.WssClient == nil {
 		settings.WssClient = websocket.DefaultDialer
 	}
+	if settings.PosName == "" {
+		settings.PosName = "golang_sdk"
+	}
 	return &Expirenza{
 		wssClient: wss.NewWssClient(wss.Settings{
 			WssURL: "wss://api.shaketopay.com.ua/restaurantEntryPoint",
 			Dialer: settings.WssClient,
 			Headers: http.Header{
 				"Authorization": []string{"Basic " + base64.StdEncoding.EncodeToString([]byte(settings.RestoID+":"+settings.SecretKey))},
+				"cookie":        []string{fmt.Sprintf("system=%s", settings.PosName)},
 			},
 		}),
 		apiClient: &api.APIClient{
@@ -158,10 +163,12 @@ func (e *Expirenza) onEvent(_ int, message []byte) {
 	e.handleEvent(operation, getOperationRequest())
 }
 
+// StopSession - Закриття підключення
 func (e *Expirenza) StopSession() error {
 	return e.wssClient.Close()
 }
 
+// Ping - Перевірка доступності сервера
 func (e *Expirenza) Ping() error {
 	return e.wssClient.SendMessage(fmt.Sprintf("Resto %s ping", e.restoID))
 }
